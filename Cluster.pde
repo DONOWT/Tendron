@@ -4,7 +4,10 @@ public class Cluster
     public final static int NUM_STEMS = 7; //number of tendrils per cluster
     public Cluster(int len, int x, int y)
     {
-        Tendril(len, Math.random()*2*PI, x, y);
-        Tendril.show();
+        double angle = Math.random()*2*PI;
+        for (int i = 0; i < NUM_STEMS; i++) {
+            Tendril(len, angle+(2*PI/7*i), x, y);
+            Tendril.show();
+        }
     }
 }
