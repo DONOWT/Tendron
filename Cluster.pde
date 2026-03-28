@@ -5,6 +5,16 @@ public class Cluster
 
     public Cluster(int len, int x, int y)
     {
-        // your code here
+      stroke(len*10,0,0);
+      if(len>0){
+        float a = (float)(Math.random()*2*PI);
+        for (int i = 0; i < len; i++) {
+          a = a + (float)(Math.random()/5-0.1);
+          line(x,y,x+(10*cos(a)),y+(10*sin(a)));
+          x = x+(10*cos(a)); 
+          y = y+(10*sin(a));
+        }
+        for (int i = 0; i < 7; i++) {Tendril(x,y,len/3);}
+      }
     }
 }
