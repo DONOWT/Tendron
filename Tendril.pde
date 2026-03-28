@@ -1,10 +1,3 @@
-public void setup() {
-  size(800,800);
-}
-public void draw() {
-  for (int i = 0; i < 7; i++) {Tendril(400,400,27);}
-  noLoop();
-}
 public void Tendril(float x, float y, int n) {
   stroke(n*10,0,0);
   if(n>0){
@@ -18,4 +11,3 @@ public void Tendril(float x, float y, int n) {
     for (int i = 0; i < 7; i++) {Tendril(x,y,n/3);}
   }
 }
-public void mousePressed() {redraw();}
