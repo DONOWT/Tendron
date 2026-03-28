@@ -1,33 +1,21 @@
-class Tendril
-{
-  public final static int SEG_LENGTH = 4; //length of each segment in the tendril
-  private int myNumSegments, myX, myY;
-  private double myAngle;
-  
-  /**
-   Class constructor
-   len is how many segments in this tendril (each a fixed length, 4 is a good start)
-   theta is tendril starting angle in radians 
-   x, y  is the starting (x,y) coordinate
-   */
-  public Tendril(int len, double theta, int x, int y)
-  {
-    myNumSegments = SEG_LENGTH;
-    myAngle = theta;
-    myX = x;
-    myY = y;
-  }
-  public void show()
-  {
-    int startX = myX;
-    int startY = myY;
-    for (int i = 0; i < myNumSegments; i++) {
-      myAngle = myAngle + Math.random()*0.4-0.2;
-      int endX = startX + cos(theta);
-      int endY = startY + sin(theta);
-      line(startX, startY, endX, endY);
-      startX = endX;
-      startY = endY;
+public void setup() {
+  size(800,800);
+}
+public void draw() {
+  for (int i = 0; i < 7; i++) {Tendril(400,400,27);}
+  noLoop();
+}
+public void Tendril(float x, float y, int n) {
+  stroke(n*10,0,0);
+  if(n>0){
+    float a = (float)(Math.random()*2*PI);
+    for (int i = 0; i < n; i++) {
+      a = a + (float)(Math.random()/5-0.1);
+      line(x,y,x+(10*cos(a)),y+(10*sin(a)));
+      x = x+(10*cos(a)); 
+      y = y+(10*sin(a));
     }
+    for (int i = 0; i < 7; i++) {Tendril(x,y,n/3);}
   }
 }
+public void mousePressed() {redraw();}
