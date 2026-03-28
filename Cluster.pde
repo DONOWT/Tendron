@@ -1,21 +1,10 @@
-public void setup() {
-  size(800,800);
-}
-public void draw() {
-  for (int i = 0; i < 7; i++) {Tendril(400,400,27);}
-  noLoop();
-}
-public void Tendril(float x, float y, int n) {
-  stroke(n*10,400-mouseX,400-mouseY);
-  if(n>0){
-    float a = (float)(Math.random()*2*PI);
-    for (int i = 0; i < n; i++) {
-      a = a + (float)(Math.random()/5-0.1);
-      line(x,y,x+(10*cos(a)),y+(10*sin(a)));
-      x = x+(10*cos(a)); 
-      y = y+(10*sin(a));
+public class Cluster
+{
+    public final static int NUM_STEMS = 7; //number of stems/leafs per cluster
+    public final static int NUM_STEMS = 7; //number of tendrils per cluster
+
+    public Cluster(int len, int x, int y)
+    {
+        // your code here
     }
-    for (int i = 0; i < 7; i++) {Tendril(x,y,n/3);}
-  }
 }
-public void mousePressed() {redraw();}
